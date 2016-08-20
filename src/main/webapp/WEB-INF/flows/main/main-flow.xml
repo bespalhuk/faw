@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns="http://www.springframework.org/schema/webflow"
+      xsi:schemaLocation="
+      	http://www.springframework.org/schema/webflow
+      	http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
+      abstract="true">
+
+	<persistence-context/>
+
+	<end-state id="save" commit="true"/>
+	<end-state id="cancel" commit="false"/>
+
+	<global-transitions>
+		<transition on="cancel" to="cancel" validate="false"/>
+	</global-transitions>
+
+</flow>

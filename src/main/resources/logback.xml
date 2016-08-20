@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator"/>
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d [%t] %-5p %c - %m%n</pattern>
+		</encoder>
+	</appender>
+	<logger name="org.apache" level="WARN"/>
+	<logger name="org.hibernate" level="WARN"/>
+	<logger name="org.hibernate.internal.SessionFactoryRegistry" level="OFF"/>
+	<logger name="org.springframework" level="WARN"/>
+	<logger name="bespalhuk" level="WARN"/>
+	<root level="WARN">
+		<appender-ref ref="CONSOLE"/>
+	</root>
+</configuration>

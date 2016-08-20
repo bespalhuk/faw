@@ -1,0 +1,5 @@
+CREATE TABLE person (
+    id VARCHAR(36) PRIMARY KEY NOT NULL,
+    version INT NOT NULL,
+    name VARCHAR(60) NOT NULL
+);

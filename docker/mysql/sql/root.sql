@@ -1,0 +1,3 @@
+DELETE FROM mysql.user;
+CREATE USER 'root'@'%' IDENTIFIED BY '';
+GRANT ALL ON *.* TO 'root'@'%' WITH GRANT OPTION;

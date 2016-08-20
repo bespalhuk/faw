@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns="http://www.w3.org/1999/xhtml">
+<h:head/>
+<h:body id="blank">
+	<h:form>
+		<h:selectOneMenu value="#{filter.person}" converter="personConverter">
+			<f:selectItems value="#{persons}" var="p" itemValue="#{p}" itemLabel="#{p.name}"/>
+		</h:selectOneMenu>
+
+		<h:inputText id="name" value="#{filter.name}"/>
+
+		<h:commandButton value="Search" action="search">
+			<f:ajax execute="name" render="@form"/>
+		</h:commandButton>
+
+		<h:commandButton value="New" action="create"/>
+
+		<h:dataTable id="list" value="#{persons}" var="p">
+			<h:column>
+				<h:commandButton value="Edit" action="edit"/>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Name</f:facet>
+				#{p.name}
+			</h:column>
+		</h:dataTable>
+	</h:form>
+</h:body>
+</html>

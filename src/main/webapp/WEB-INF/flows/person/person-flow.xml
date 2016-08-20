@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns="http://www.springframework.org/schema/webflow"
+      xsi:schemaLocation="
+      	http://www.springframework.org/schema/webflow
+      	http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
+      parent="main">
+
+	<view-state id="persons">
+		<on-entry>
+			<set name="viewScope.filter" value="personController.filter()"/>
+		</on-entry>
+
+		<on-render>
+			<evaluate expression="persistenceContext.clear()"/>
+			<evaluate expression="personRepository.findAll(filter)"
+			          result="viewScope.persons" result-type="dataModel"/>
+		</on-render>
+
+		<transition on="search"/>
+
+		<transition on="create" to="person">
+			<set name="flowScope.person" value="personController.create()"/>
+		</transition>
+
+		<transition on="edit" to="person">
+			<set name="flowScope.person" value="persons.selectedRow"/>
+		</transition>
+	</view-state>
+
+	<view-state id="person" model="person">
+		<transition on="save" to="save">
+			<evaluate expression="personRepository.save(person)"/>
+		</transition>
+	</view-state>
+
+</flow>

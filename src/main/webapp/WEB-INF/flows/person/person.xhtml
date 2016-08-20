@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:h="http://java.sun.com/jsf/html"
+      xmlns="http://www.w3.org/1999/xhtml">
+<h:head/>
+<h:body id="blank">
+	<h:form>
+		<h:inputText id="name" value="#{person.name}"/>
+		<h:message for="name"/>
+
+		<h:commandButton value="Save" action="save"/>
+		<h:commandButton value="Cancel" action="cancel" immediate="true"/>
+		<h:messages/>
+	</h:form>
+</h:body>
+</html>

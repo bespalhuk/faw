@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns="http://www.w3.org/1999/xhtml">
+<h:head>
+	<title>Welcome</title>
+</h:head>
+<h:body>
+	<h:form prependId="false">
+		<h:inputText id="username"/>
+		<h:inputSecret id="password"/>
+		<h:commandButton id="login" value="Sign in" action="#{userService.login()}"/>
+		<h:outputText value="Wrong user or pass!" rendered="#{param.containsKey('error')}"/>
+	</h:form>
+</h:body>
+</html>
